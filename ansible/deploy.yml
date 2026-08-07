@@ -1,0 +1,6 @@
+---
+- hosts: k8s_control
+  gather_facts: false
+  tasks:
+    - command: kubectl apply -f {{ workspace_dir }}/k8s/deployment.yaml
+    - command: kubectl apply -f {{ workspace_dir }}/k8s/service.yaml
