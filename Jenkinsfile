@@ -12,8 +12,8 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                    credentialsId: 'github-ssh',
-                    url: 'git@github.com:sanjay101103/flask-cicd-app.git'
+                    
+                    url: 'https://github.com/sanjay101103/flask-cicd-app.git'
             }
         }
 
