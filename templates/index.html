@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,111 +10,297 @@
     <style>
         * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f4f6f8;
-            color: #222;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #f5f7fb;
+            color: #1e293b;
         }
 
-        header {
-            background: #1f4e79;
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            height: 72px;
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            background: #2563eb;
             color: white;
-            padding: 25px;
-            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
         }
 
-        header h1 {
-            margin: 0;
+        .logo h2 {
+            font-size: 20px;
+            color: #172554;
         }
+
+        .logo span {
+            color: #64748b;
+            font-size: 12px;
+            display: block;
+            margin-top: 2px;
+        }
+
+        .online-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #475569;
+        }
+
+        .online-dot {
+            width: 9px;
+            height: 9px;
+            background: #22c55e;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px #dcfce7;
+        }
+
+        /* =========================
+           MAIN
+        ========================= */
 
         .container {
             width: 90%;
-            max-width: 1200px;
-            margin: 30px auto;
+            max-width: 1250px;
+            margin: 35px auto;
         }
+
+        .welcome {
+            margin-bottom: 28px;
+        }
+
+        .welcome h1 {
+            font-size: 30px;
+            color: #0f172a;
+            margin-bottom: 7px;
+        }
+
+        .welcome p {
+            color: #64748b;
+            font-size: 15px;
+        }
+
+        /* =========================
+           DASHBOARD CARDS
+        ========================= */
 
         .cards {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            gap: 22px;
             margin-bottom: 30px;
         }
 
         .card {
             background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            box-shadow: 0 4px 15px rgba(15, 23, 42, 0.04);
+            transition: 0.25s ease;
         }
 
-        .card h3 {
-            margin-top: 0;
-            color: #1f4e79;
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
         }
+
+        .card-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
+        }
+
+        .book-icon {
+            background: #dbeafe;
+        }
+
+        .student-icon {
+            background: #ede9fe;
+        }
+
+        .system-icon {
+            background: #dcfce7;
+        }
+
+        .card-content h3 {
+            font-size: 14px;
+            font-weight: 500;
+            color: #64748b;
+            margin-bottom: 5px;
+        }
+
+        .card-content h2 {
+            font-size: 27px;
+            color: #0f172a;
+        }
+
+        .online-text {
+            color: #16a34a !important;
+            font-size: 22px !important;
+        }
+
+        /* =========================
+           TWO COLUMN AREA
+        ========================= */
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        /* =========================
+           FORM BOX
+        ========================= */
 
         .form-box {
             background: white;
-            padding: 20px;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            padding: 25px;
             margin-bottom: 25px;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(15, 23, 42, 0.04);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .section-icon {
+            width: 38px;
+            height: 38px;
+            background: #eff6ff;
+            color: #2563eb;
+            border-radius: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .section-header h2 {
+            font-size: 19px;
+            color: #0f172a;
+        }
+
+        .section-header p {
+            font-size: 12px;
+            color: #94a3b8;
+            margin-top: 3px;
+        }
+
+        /* =========================
+           INPUTS
+        ========================= */
+
+        .input-group {
+            margin-bottom: 14px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 7px;
         }
 
         input {
             width: 100%;
-            padding: 12px;
-            margin: 8px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            padding: 12px 14px;
+            border: 1px solid #dbe0e6;
+            border-radius: 9px;
+            background: #f8fafc;
+            color: #1e293b;
+            font-size: 14px;
+            outline: none;
+            transition: 0.2s;
         }
+
+        input:focus {
+            background: white;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.10);
+        }
+
+        /* =========================
+           BUTTON
+        ========================= */
 
         button,
         .button {
-            background: #1f4e79;
+            background: #2563eb;
             color: white;
             border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
+            padding: 11px 17px;
+            border-radius: 9px;
             cursor: pointer;
             text-decoration: none;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.2s;
         }
 
         button:hover,
         .button:hover {
-            background: #163a5c;
+            background: #1d4ed8;
+            transform: translateY(-1px);
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
+        .return-btn {
+            background: #16a34a;
         }
 
-        th,
-        td {
-            padding: 12px;
-            border-bottom: 1px solid #ddd;
-            text-align: left;
+        .return-btn:hover {
+            background: #15803d;
         }
 
-        th {
-            background: #1f4e79;
-            color: white;
-        }
-
-        .available {
-            color: green;
-            font-weight: bold;
-        }
-
-        .issued {
-            color: red;
-            font-weight: bold;
-        }
+        /* =========================
+           SEARCH
+        ========================= */
 
         .search-box {
             display: flex;
@@ -122,27 +309,192 @@
 
         .search-box input {
             margin: 0;
+            flex: 1;
         }
+
+        .search-box button {
+            min-width: 100px;
+        }
+
+        /* =========================
+           TABLE
+        ========================= */
+
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: white;
+        }
+
+        th {
+            background: #f8fafc;
+            color: #64748b;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 14px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #f1f5f9;
+            font-size: 14px;
+            color: #334155;
+        }
+
+        tbody tr {
+            transition: 0.15s;
+        }
+
+        tbody tr:hover {
+            background: #f8fafc;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .book-name {
+            font-weight: 600;
+            color: #0f172a;
+        }
+
+        .author {
+            color: #64748b;
+        }
+
+        /* =========================
+           STATUS
+        ========================= */
+
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .status::before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+        }
+
+        .available {
+            color: #15803d;
+            background: #dcfce7;
+        }
+
+        .available::before {
+            background: #22c55e;
+        }
+
+        .issued {
+            color: #dc2626;
+            background: #fee2e2;
+        }
+
+        .issued::before {
+            background: #ef4444;
+        }
+
+        /* =========================
+           EMPTY STATE
+        ========================= */
+
+        .empty {
+            text-align: center;
+            padding: 30px !important;
+            color: #94a3b8;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
 
         footer {
-            margin-top: 40px;
-            background: #1f4e79;
-            color: white;
+            margin-top: 50px;
+            background: #0f172a;
+            color: #94a3b8;
             text-align: center;
-            padding: 15px;
+            padding: 22px;
+            font-size: 13px;
         }
 
-        @media (max-width: 768px) {
+        footer strong {
+            color: white;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 900px) {
+
             .cards {
                 grid-template-columns: 1fr;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .navbar {
+                padding: 0 20px;
+            }
+
+            .logo h2 {
+                font-size: 17px;
+            }
+
+            .online-status {
+                display: none;
+            }
+
+            .container {
+                width: 94%;
+                margin: 25px auto;
+            }
+
+            .welcome h1 {
+                font-size: 25px;
+            }
+
+            .form-box {
+                padding: 18px;
             }
 
             .search-box {
                 flex-direction: column;
             }
 
-            table {
-                font-size: 14px;
+            .search-box button {
+                width: 100%;
+            }
+
+            th,
+            td {
+                padding: 11px;
+                white-space: nowrap;
+            }
+
+            .card {
+                padding: 20px;
             }
         }
     </style>
@@ -150,251 +502,559 @@
 
 <body>
 
-<header>
-    <h1>📚 Library Management System</h1>
-    <p>Flask + Docker + Kubernetes CI/CD Application</p>
-</header>
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+
+        <div class="logo-icon">
+            📚
+        </div>
+
+        <div>
+            <h2>Library Management</h2>
+            <span>Smart Library Portal</span>
+        </div>
+
+    </div>
+
+    <div class="online-status">
+        <span class="online-dot"></span>
+        System Online
+    </div>
+
+</nav>
+
+
+<!-- =========================
+     MAIN
+========================= -->
 
 <div class="container">
 
-    <!-- Dashboard -->
+    <div class="welcome">
+
+        <h1>Library Dashboard</h1>
+
+        <p>
+            Manage books, students and library activities from one place.
+        </p>
+
+    </div>
+
+
+    <!-- =========================
+         DASHBOARD
+    ========================= -->
+
     <div class="cards">
 
         <div class="card">
-            <h3>Total Books</h3>
-            <h2>{{ books|length }}</h2>
+
+            <div class="card-icon book-icon">
+                📚
+            </div>
+
+            <div class="card-content">
+
+                <h3>Total Books</h3>
+
+                <h2>
+                    {{ books|length }}
+                </h2>
+
+            </div>
+
         </div>
+
 
         <div class="card">
-            <h3>Students</h3>
-            <h2>{{ students|length }}</h2>
+
+            <div class="card-icon student-icon">
+                👨‍🎓
+            </div>
+
+            <div class="card-content">
+
+                <h3>Registered Students</h3>
+
+                <h2>
+                    {{ students|length }}
+                </h2>
+
+            </div>
+
         </div>
+
 
         <div class="card">
-            <h3>System</h3>
-            <h2>Online</h2>
+
+            <div class="card-icon system-icon">
+                ✓
+            </div>
+
+            <div class="card-content">
+
+                <h3>System Status</h3>
+
+                <h2 class="online-text">
+                    Online
+                </h2>
+
+            </div>
+
         </div>
 
     </div>
 
-    <!-- Add Book -->
-    <div class="form-box">
 
-        <h2>➕ Add New Book</h2>
+    <!-- =========================
+         ADD FORMS
+    ========================= -->
 
-        <form action="/add-book" method="POST">
+    <div class="two-column">
 
-            <input
-                type="text"
-                name="title"
-                placeholder="Book Title"
-                required
-            >
+        <!-- ADD BOOK -->
 
-            <input
-                type="text"
-                name="author"
-                placeholder="Author Name"
-                required
-            >
+        <div class="form-box">
 
-            <button type="submit">
-                Add Book
-            </button>
+            <div class="section-header">
 
-        </form>
+                <div class="section-icon">
+                    📖
+                </div>
+
+                <div>
+
+                    <h2>Add New Book</h2>
+
+                    <p>
+                        Add a new book to the library
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <form action="/add-book" method="POST">
+
+                <div class="input-group">
+
+                    <label>
+                        Book Title
+                    </label>
+
+                    <input
+                        type="text"
+                        name="title"
+                        placeholder="Enter book title"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label>
+                        Author
+                    </label>
+
+                    <input
+                        type="text"
+                        name="author"
+                        placeholder="Enter author name"
+                        required
+                    >
+
+                </div>
+
+
+                <button type="submit">
+                    ＋ Add Book
+                </button>
+
+            </form>
+
+        </div>
+
+
+        <!-- ADD STUDENT -->
+
+        <div class="form-box">
+
+            <div class="section-header">
+
+                <div class="section-icon">
+                    👨‍🎓
+                </div>
+
+                <div>
+
+                    <h2>Register Student</h2>
+
+                    <p>
+                        Add a new student to the system
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <form action="/add-student" method="POST">
+
+                <div class="input-group">
+
+                    <label>
+                        Student Name
+                    </label>
+
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Enter student name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label>
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Enter student email"
+                        required
+                    >
+
+                </div>
+
+
+                <button type="submit">
+                    ＋ Add Student
+                </button>
+
+            </form>
+
+        </div>
 
     </div>
 
-    <!-- Add Student -->
+
+    <!-- =========================
+         SEARCH
+    ========================= -->
+
     <div class="form-box">
 
-        <h2>👨‍🎓 Add Student</h2>
+        <div class="section-header">
 
-        <form action="/add-student" method="POST">
+            <div class="section-icon">
+                🔍
+            </div>
 
-            <input
-                type="text"
-                name="name"
-                placeholder="Student Name"
-                required
-            >
+            <div>
 
-            <input
-                type="email"
-                name="email"
-                placeholder="Student Email"
-                required
-            >
+                <h2>Search Library</h2>
 
-            <button type="submit">
-                Add Student
-            </button>
+                <p>
+                    Find books by title or author
+                </p>
 
-        </form>
+            </div>
 
-    </div>
+        </div>
 
-    <!-- Search -->
-    <div class="form-box">
 
-        <h2>🔍 Search Books</h2>
-
-        <form action="/search" method="GET" class="search-box">
+        <form
+            action="/search"
+            method="GET"
+            class="search-box"
+        >
 
             <input
                 type="text"
                 name="keyword"
-                placeholder="Search by title or author"
+                placeholder="Search by book title or author..."
                 value="{{ search_keyword|default('') }}"
             >
 
             <button type="submit">
-                Search
+                🔍 Search
             </button>
 
         </form>
 
     </div>
 
-    <!-- Books -->
+
+    <!-- =========================
+         BOOK LIST
+    ========================= -->
+
     <div class="form-box">
 
-        <h2>📖 Book List</h2>
+        <div class="section-header">
 
-        <table>
+            <div class="section-icon">
+                📚
+            </div>
 
-            <tr>
-                <th>ID</th>
-                <th>Book</th>
-                <th>Author</th>
-                <th>Status</th>
-                <th>Action</th>
-            </tr>
+            <div>
 
-            {% for book in books %}
+                <h2>Book Collection</h2>
 
-            <tr>
+                <p>
+                    View and manage all library books
+                </p>
 
-                <td>
-                    {{ book.id }}
-                </td>
+            </div>
 
-                <td>
-                    {{ book.title }}
-                </td>
+        </div>
 
-                <td>
-                    {{ book.author }}
-                </td>
 
-                <td>
+        <div class="table-wrapper">
 
-                    {% if book.status == "Available" %}
+            <table>
 
-                        <span class="available">
-                            Available
-                        </span>
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            ID
+                        </th>
+
+                        <th>
+                            Book
+                        </th>
+
+                        <th>
+                            Author
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                        <th>
+                            Action
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    {% for book in books %}
+
+                    <tr>
+
+                        <td>
+                            #{{ book.id }}
+                        </td>
+
+
+                        <td class="book-name">
+                            {{ book.title }}
+                        </td>
+
+
+                        <td class="author">
+                            {{ book.author }}
+                        </td>
+
+
+                        <td>
+
+                            {% if book.status == "Available" %}
+
+                                <span class="status available">
+                                    Available
+                                </span>
+
+                            {% else %}
+
+                                <span class="status issued">
+                                    Issued
+                                </span>
+
+                            {% endif %}
+
+                        </td>
+
+
+                        <td>
+
+                            {% if book.status == "Available" %}
+
+                                <a
+                                    class="button"
+                                    href="/issue/{{ book.id }}"
+                                >
+                                    Issue
+                                </a>
+
+                            {% else %}
+
+                                <a
+                                    class="button return-btn"
+                                    href="/return/{{ book.id }}"
+                                >
+                                    Return
+                                </a>
+
+                            {% endif %}
+
+                        </td>
+
+                    </tr>
+
 
                     {% else %}
 
-                        <span class="issued">
-                            Issued
-                        </span>
+                    <tr>
 
-                    {% endif %}
-
-                </td>
-
-                <td>
-
-                    {% if book.status == "Available" %}
-
-                        <a
-                            class="button"
-                            href="/issue/{{ book.id }}"
+                        <td
+                            colspan="5"
+                            class="empty"
                         >
-                            Issue
-                        </a>
+                            📚 No books found in the library.
+                        </td>
 
-                    {% else %}
+                    </tr>
 
-                        <a
-                            class="button"
-                            href="/return/{{ book.id }}"
-                        >
-                            Return
-                        </a>
+                    {% endfor %}
 
-                    {% endif %}
+                </tbody>
 
-                </td>
+            </table>
 
-            </tr>
-
-            {% else %}
-
-            <tr>
-                <td colspan="5">
-                    No books found.
-                </td>
-            </tr>
-
-            {% endfor %}
-
-        </table>
+        </div>
 
     </div>
 
-    <!-- Students -->
+
+    <!-- =========================
+         STUDENT LIST
+    ========================= -->
+
     <div class="form-box">
 
-        <h2>👨‍🎓 Registered Students</h2>
+        <div class="section-header">
 
-        <table>
+            <div class="section-icon">
+                👨‍🎓
+            </div>
 
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Email</th>
-            </tr>
+            <div>
 
-            {% for student in students %}
+                <h2>Registered Students</h2>
 
-            <tr>
+                <p>
+                    Students currently registered in the library
+                </p>
 
-                <td>
-                    {{ student.id }}
-                </td>
+            </div>
 
-                <td>
-                    {{ student.name }}
-                </td>
+        </div>
 
-                <td>
-                    {{ student.email }}
-                </td>
 
-            </tr>
+        <div class="table-wrapper">
 
-            {% else %}
+            <table>
 
-            <tr>
-                <td colspan="3">
-                    No students registered.
-                </td>
-            </tr>
+                <thead>
 
-            {% endfor %}
+                    <tr>
 
-        </table>
+                        <th>
+                            ID
+                        </th>
+
+                        <th>
+                            Student Name
+                        </th>
+
+                        <th>
+                            Email Address
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    {% for student in students %}
+
+                    <tr>
+
+                        <td>
+                            #{{ student.id }}
+                        </td>
+
+                        <td class="book-name">
+                            {{ student.name }}
+                        </td>
+
+                        <td class="author">
+                            {{ student.email }}
+                        </td>
+
+                    </tr>
+
+
+                    {% else %}
+
+                    <tr>
+
+                        <td
+                            colspan="3"
+                            class="empty"
+                        >
+                            👨‍🎓 No students registered yet.
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
 
     </div>
 
 </div>
 
+
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
-    Library Management System | Flask CI/CD Kubernetes Project
+
+    <strong>Library Management System</strong>
+    <br>
+
+    Smart Library Portal © 2026
+
 </footer>
 
 </body>
