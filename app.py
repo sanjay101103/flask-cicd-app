@@ -4,7 +4,7 @@ app=Flask(__name__)
 APP_VERSION=os.environ.get("APP_VERSION","1.0.0")
 @app.get("/")
 def home():
-    return jsonify(message="Hello from the Flask CI/CD Kubernetes pipeline!",
+    return jsonify(message="Hello from sanjay Flask CI/CD Kubernetes pipeline!",
                    version=APP_VERSION,
                    hostname=socket.gethostname())
 @app.get("/health")

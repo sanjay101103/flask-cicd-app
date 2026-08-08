@@ -1,6 +1,31 @@
 ---
-- hosts: k8s_control
+- name: Deploy Flask app to Kubernetes
+  hosts: k8s_control
   gather_facts: false
+
+  vars:
+    image_name: "{{ docker_image }}"
+    manifests_dir: "{{ workspace_dir }}/k8s"
+
   tasks:
-    - command: kubectl apply -f {{ workspace_dir }}/k8s/deployment.yaml
-    - command: kubectl apply -f {{ workspace_dir }}/k8s/service.yaml
+
+    - name: Substitute the image tag in the deployment manifest
+      replace:
+        path: "{{ manifests_dir }}/deployment.yaml"
+        regexp: 'sanjay101103/flask-cicd-app:latest'
+        replace: "{{ image_name }}"
+
+    - name: Apply Kubernetes Deployment
+      command: kubectl apply -f {{ manifests_dir }}/deployment.yaml
+      environment:
+        KUBECONFIG: /home/jenkins-kubeconfig
+
+    - name: Apply Kubernetes Service
+      command: kubectl apply -f {{ manifests_dir }}/service.yaml
+      environment:
+        KUBECONFIG: /home/jenkins-kubeconfig
+
+    - name: Wait for rollout to complete
+      command: kubectl rollout status deployment/flask-app --timeout=120s
+      environment:
+        KUBECONFIG: /home/jenkins-kubeconfig
